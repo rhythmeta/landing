@@ -902,19 +902,186 @@ img {
   line-height: 1.85;
 }
 
-.maimaid-hero-orbit {
-  width: min(44vw, 600px);
-  color: #fff;
-  border-color: rgba(169, 232, 243, 0.75);
+.maimaid-device-stage {
+  position: relative;
+  z-index: 2;
+  width: min(27vw, 340px);
+  margin: 0 auto;
+  animation: device-in 900ms 120ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
 }
 
-.maimaid-hero-orbit .device-ticks {
-  border-color: rgba(255, 255, 255, 0.35);
+.maimaid-device-stage::before {
+  position: absolute;
+  inset: 8% -9% 10% 11%;
+  z-index: -1;
+  content: "";
+  background: rgba(169, 232, 243, 0.08);
+  border: 1px solid rgba(169, 232, 243, 0.72);
+  transform: rotate(-5deg);
 }
 
-.maimaid-hero-orbit .app-disc {
-  background: #18181b;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+.device-stage-meta,
+.maimaid-device-stage figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.device-stage-meta {
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.maimaid-device-stage figcaption {
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.maimaid-device-stage figcaption strong {
+  color: var(--cyan);
+  font-size: 10px;
+}
+
+.maimaid-device-stage figcaption span {
+  color: rgba(255, 255, 255, 0.48);
+  text-align: right;
+}
+
+.maimaid-phone {
+  filter: drop-shadow(0 28px 36px rgba(0, 0, 0, 0.3));
+}
+
+.maimaid-phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18% / 8.8%;
+  corner-shape: superellipse(2);
+}
+
+.maimaid-phone-hero {
+  transition: transform 260ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.maimaid-device-stage:hover .maimaid-phone-hero {
+  transform: translateY(-8px) rotate(1deg);
+}
+
+@keyframes device-in {
+  from {
+    opacity: 0;
+    transform: translateY(42px) rotate(4deg) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0) scale(1);
+  }
+}
+
+.maimaid-screens {
+  position: relative;
+  overflow: hidden;
+  padding: 112px max(40px, calc((100vw - var(--content-width)) / 2 + 40px)) 150px;
+  border-top: 1px solid var(--line-light);
+}
+
+.screens-heading {
+  display: grid;
+  grid-template-columns: 0.55fr 1fr 0.75fr;
+  gap: 50px;
+  align-items: end;
+}
+
+.screens-heading .project-overline {
+  color: #25899b;
+}
+
+.screens-heading h2 {
+  margin: 0;
+  font-size: 76px;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.screens-heading > p {
+  max-width: 420px;
+  margin: 0;
+  color: rgba(10, 10, 11, 0.62);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.maimaid-screen-gallery {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(50px, 7vw, 110px);
+  align-items: start;
+  margin-top: 100px;
+  padding-top: 58px;
+  border-top: 1px solid var(--line-light);
+}
+
+.maimaid-screen {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.55fr) minmax(250px, 340px);
+  gap: clamp(24px, 3vw, 46px);
+  align-items: center;
+  min-width: 0;
+  margin: 0;
+}
+
+.maimaid-screen-query {
+  grid-template-columns: minmax(250px, 340px) minmax(130px, 0.55fr);
+  margin-top: 170px;
+}
+
+.maimaid-screen figcaption {
+  display: grid;
+  gap: 22px;
+}
+
+.maimaid-screen figcaption span {
+  color: rgba(10, 10, 11, 0.48);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.maimaid-screen figcaption strong {
+  font-size: 27px;
+  line-height: 1.38;
+}
+
+.maimaid-phone-detail {
+  width: min(100%, 340px);
+  transition: transform 260ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.maimaid-screen:hover .maimaid-phone-detail {
+  transform: translateY(-8px);
+}
+
+@supports (animation-timeline: view()) {
+  .maimaid-screen {
+    animation: screen-rise linear both;
+    animation-range: entry 8% cover 34%;
+    animation-timeline: view();
+  }
+}
+
+@keyframes screen-rise {
+  from {
+    opacity: 0.25;
+    transform: translateY(54px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .maimaid-access {
@@ -1003,81 +1170,6 @@ img {
 
 .visual-links a:hover {
   padding-left: 10px;
-}
-
-.device-orbit {
-  position: relative;
-  z-index: 2;
-  width: min(52vw, 620px);
-  aspect-ratio: 1;
-  align-self: center;
-  justify-self: center;
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  animation: float-disc 5s ease-in-out infinite;
-}
-
-@keyframes float-disc {
-  0%,
-  100% {
-    transform: translateY(-5px);
-  }
-  50% {
-    transform: translateY(8px);
-  }
-}
-
-.device-ticks {
-  position: absolute;
-  inset: 5%;
-  border: 16px dotted rgba(10, 10, 11, 0.55);
-  border-radius: 50%;
-  animation: orbit-spin 40s linear infinite reverse;
-}
-
-.app-disc {
-  position: absolute;
-  inset: 19%;
-  display: grid;
-  padding: 10%;
-  place-items: center;
-  background: var(--ink);
-  border-radius: 50%;
-}
-
-.app-disc img {
-  width: 100%;
-  border-radius: 24%;
-}
-
-.orbit-note {
-  position: absolute;
-  display: grid;
-  width: 70px;
-  height: 70px;
-  place-items: center;
-  color: #fff;
-  background: var(--ink);
-  border: 1px solid #fff;
-  border-radius: 50%;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 10px;
-  font-weight: 600;
-}
-
-.note-a {
-  top: 6%;
-  left: 12%;
-}
-
-.note-b {
-  top: 16%;
-  right: 2%;
-}
-
-.note-c {
-  right: 10%;
-  bottom: 4%;
 }
 
 .feature-list {
@@ -1324,6 +1416,31 @@ footer > span {
 
   .maimaid-copy h2 {
     font-size: 40px;
+  }
+
+  .maimaid-device-stage {
+    width: min(29vw, 300px);
+  }
+
+  .screens-heading h2 {
+    font-size: 64px;
+  }
+
+  .maimaid-screen,
+  .maimaid-screen-query {
+    grid-template-columns: 1fr;
+  }
+
+  .maimaid-screen-query {
+    margin-top: 130px;
+  }
+
+  .maimaid-screen-query figcaption {
+    order: -1;
+  }
+
+  .maimaid-phone-detail {
+    width: min(100%, 320px);
   }
 
   .feature-row {
@@ -1576,10 +1693,40 @@ footer > span {
     font-size: 38px;
   }
 
-  .maimaid-hero-orbit {
+  .maimaid-device-stage {
     order: 0;
-    width: min(70vw, 500px);
+    width: min(46vw, 220px);
     margin: 46px auto 0;
+  }
+
+  .maimaid-screens {
+    padding: 76px 22px 100px;
+  }
+
+  .screens-heading {
+    display: block;
+  }
+
+  .screens-heading > div:nth-child(2) {
+    margin-top: 54px;
+  }
+
+  .screens-heading h2 {
+    font-size: 58px;
+  }
+
+  .screens-heading > p {
+    margin-top: 28px;
+  }
+
+  .maimaid-screen-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 46px;
+    margin-top: 72px;
+  }
+
+  .maimaid-screen-query {
+    margin-top: 110px;
   }
 
   .metric-board {
@@ -1594,12 +1741,6 @@ footer > span {
 
   .visual-copy h3 {
     font-size: 56px;
-  }
-
-  .device-orbit {
-    order: -1;
-    width: min(80vw, 560px);
-    margin: 60px auto 20px;
   }
 
   .feature-list {
@@ -1802,16 +1943,16 @@ footer > span {
   }
 
   .maimaid-hero-content {
-    padding: 36px 22px 24px;
+    padding: 28px 22px 18px;
   }
 
   .maimaid-copy h1 {
-    font-size: 62px;
+    font-size: 54px;
   }
 
   .maimaid-copy h2 {
     margin-top: 24px;
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .maimaid-copy > p:last-of-type {
@@ -1820,14 +1961,69 @@ footer > span {
     line-height: 1.7;
   }
 
-  .maimaid-hero-orbit {
-    width: min(54vw, 220px);
-    margin: 22px auto 20px;
+  .maimaid-hero .hero-actions {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 8px;
   }
 
-  .maimaid-hero .orbit-note {
-    width: 42px;
-    height: 42px;
+  .maimaid-hero .button {
+    width: auto;
+    padding: 0 12px;
+    font-size: 10px;
+  }
+
+  .maimaid-device-stage {
+    width: min(26vw, 100px);
+    margin: 8px auto 0;
+  }
+
+  .device-stage-meta {
+    display: none;
+  }
+
+  .maimaid-device-stage figcaption {
+    display: none;
+  }
+
+  .maimaid-screens {
+    padding-bottom: 84px;
+  }
+
+  .screens-heading > div:nth-child(2) {
+    margin-top: 42px;
+  }
+
+  .screens-heading h2 {
+    font-size: 42px;
+  }
+
+  .maimaid-screen-gallery {
+    grid-template-columns: 1fr;
+    gap: 84px;
+    margin-top: 54px;
+    padding-top: 42px;
+  }
+
+  .maimaid-screen,
+  .maimaid-screen-query {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 0;
+  }
+
+  .maimaid-screen figcaption,
+  .maimaid-screen-query figcaption {
+    order: -1;
+    gap: 12px;
+  }
+
+  .maimaid-screen figcaption strong {
+    font-size: 24px;
+  }
+
+  .maimaid-phone-detail {
+    width: min(78vw, 286px);
+    justify-self: center;
   }
 
   .metric-board {
@@ -1850,16 +2046,6 @@ footer > span {
 
   .maimaid-final h2 {
     font-size: 48px;
-  }
-
-  .device-ticks {
-    border-width: 10px;
-  }
-
-  .orbit-note {
-    width: 54px;
-    height: 54px;
-    font-size: 8px;
   }
 
   .feature-row {
@@ -1900,6 +2086,10 @@ footer > span {
 @media (max-width: 360px) {
   .hero h1 {
     font-size: 38px;
+  }
+
+  .maimaid-device-stage {
+    width: 82px;
   }
 }
 

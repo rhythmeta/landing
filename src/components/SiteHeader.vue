@@ -19,6 +19,7 @@ const links = computed(() =>
   props.page === "maimaid"
     ? [
         { label: "OVERVIEW", to: "/maimaid#overview" },
+        { label: "SCREENS", to: "/maimaid#screens" },
         { label: "FEATURES", to: "/maimaid#features" },
       ]
     : [
