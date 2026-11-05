@@ -2111,3 +2111,2720 @@ footer > span {
   outline: 2px solid var(--cyan-strong);
   outline-offset: 4px;
 }
+
+/* Deconstructed rhythm system */
+:root {
+  --ink: #101012;
+  --paper: #f2f3ee;
+  --cyan: #dfff32;
+  --cyan-strong: #ff553f;
+  --signal-red: #ff553f;
+  --signal-aqua: #52d7c0;
+  --line-dark: rgba(255, 255, 255, 0.2);
+  --line-light: rgba(16, 16, 18, 0.22);
+  --content-width: 1540px;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+body {
+  color: var(--ink);
+  background: var(--ink);
+}
+
+::selection {
+  color: var(--ink);
+  background: var(--cyan);
+}
+
+.hero,
+.maimaid-hero,
+.chunithmd-hero,
+.final-cta {
+  color: #fff;
+  background-color: var(--ink);
+}
+
+.hero-grid,
+.cta-grid {
+  opacity: 0.38;
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, #000 8%, transparent 98%);
+}
+
+.site-header {
+  width: 100%;
+  max-width: none;
+  height: 78px;
+  padding: 0 clamp(22px, 5vw, 76px);
+  border-bottom-color: var(--line-dark);
+}
+
+.brand {
+  gap: 10px;
+  font-size: 12px;
+}
+
+.brand-mark {
+  width: 32px;
+  height: 32px;
+  color: var(--ink);
+  background: var(--cyan);
+  border: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 74%, 74% 100%, 0 100%);
+}
+
+.desktop-nav {
+  gap: clamp(16px, 2.6vw, 38px);
+  font-size: 10px;
+}
+
+.desktop-nav a,
+.nav-dropdown-trigger,
+.header-github {
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.desktop-nav a:hover,
+.nav-dropdown-trigger:hover,
+.header-github:hover {
+  color: var(--cyan);
+}
+
+.projects-dropdown {
+  display: grid;
+  gap: 4px;
+  width: 328px;
+  padding-top: 18px;
+}
+
+.project-menu-item {
+  min-height: 72px;
+  background: #18181b;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.project-menu-item:hover {
+  border-color: var(--cyan);
+}
+
+.header-github {
+  font-size: 10px;
+}
+
+.hero-content,
+.maimaid-hero-content,
+.chunithmd-hero-content {
+  width: 100%;
+  max-width: 1540px;
+  min-height: calc(min(940px, 100svh) - 128px);
+  padding: 30px clamp(22px, 5vw, 76px) 76px;
+}
+
+.hero-content {
+  grid-template-columns: minmax(0, 1fr) minmax(390px, 0.82fr);
+}
+
+.hero-copy,
+.maimaid-copy,
+.chunithmd-copy {
+  max-width: 740px;
+}
+
+.eyebrow {
+  margin-bottom: 24px;
+  font-size: 10px;
+}
+
+.eyebrow span {
+  width: 9px;
+  height: 9px;
+  background: var(--signal-red);
+  box-shadow: 3px 3px 0 var(--cyan);
+}
+
+.hero h1 {
+  font-size: 82px;
+  line-height: 0.88;
+}
+
+.hero h2,
+.maimaid-copy h2,
+.chunithmd-copy h2 {
+  margin-top: 30px;
+  font-size: 44px;
+  line-height: 1.22;
+}
+
+.hero-description,
+.maimaid-copy > p:last-of-type,
+.chunithmd-copy > p:last-of-type {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.button {
+  min-height: 48px;
+  font-size: 11px;
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 92% 100%, 0 100%);
+}
+
+.button-primary {
+  color: var(--ink);
+  background: var(--cyan);
+  border-color: var(--cyan);
+}
+
+.button-primary:hover {
+  background: #edff8e;
+  border-color: #edff8e;
+}
+
+.button-quiet,
+.button-outline {
+  border-color: rgba(255, 255, 255, 0.38);
+}
+
+.button-quiet:hover,
+.button-outline:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+.rhythm-stage {
+  width: min(45vw, 600px);
+}
+
+.rhythm-ring {
+  border: 1px solid rgba(223, 255, 50, 0.66);
+  border-radius: 0;
+  transform: rotate(12deg);
+}
+
+.orbit {
+  border-radius: 0;
+}
+
+.orbit-outer {
+  border-color: rgba(255, 85, 63, 0.7);
+  transform: rotate(28deg);
+}
+
+.orbit-inner {
+  border-color: rgba(255, 255, 255, 0.24);
+  transform: rotate(-12deg);
+}
+
+.rhythm-pad {
+  color: rgba(255, 255, 255, 0.7);
+  background: #18181b;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 9%, 90% 100%, 10% 92%);
+}
+
+.rhythm-pad::before {
+  border-radius: 0;
+}
+
+.rhythm-pad.active {
+  color: var(--ink);
+  background: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: 5px 5px 0 var(--signal-red);
+}
+
+.rhythm-pad.pressed {
+  color: var(--ink);
+  background: #fff;
+  border-color: #fff;
+  box-shadow: 4px 4px 0 var(--signal-aqua);
+}
+
+.core {
+  background: #19191b;
+  border-radius: 0;
+  clip-path: polygon(18% 0, 100% 12%, 88% 100%, 0 87%);
+  box-shadow: inset 0 0 0 12px #101012;
+}
+
+.core-rhythmeta {
+  color: var(--ink);
+  background: var(--cyan);
+  box-shadow: inset 0 0 0 12px #19191b;
+}
+
+.core-brand-symbol {
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  transform: rotate(-8deg);
+}
+
+.judgement {
+  color: var(--signal-red);
+}
+
+.stage-chuni-badge {
+  position: absolute;
+  right: clamp(10px, 4vw, 58px);
+  bottom: 8%;
+  z-index: 6;
+  display: grid;
+  grid-template-columns: 48px auto;
+  gap: 0 10px;
+  align-items: center;
+  min-width: 176px;
+  padding: 8px 12px 8px 8px;
+  color: var(--ink);
+  background: var(--cyan);
+  clip-path: polygon(0 0, 100% 0, 100% 76%, 88% 100%, 0 100%);
+  transform: rotate(-5deg);
+}
+
+.stage-chuni-badge img {
+  grid-row: span 2;
+  width: 48px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: var(--paper);
+}
+
+.stage-chuni-badge span,
+.stage-chuni-badge strong {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.stage-chuni-badge strong {
+  margin-top: 4px;
+  color: #b43a2b;
+}
+
+.scroll-cue {
+  right: clamp(22px, 5vw, 76px);
+  bottom: 20px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 9px;
+}
+
+.ticker {
+  color: var(--ink);
+  background: var(--signal-red);
+  border: 0;
+}
+
+.ticker-track {
+  height: 48px;
+  gap: 26px;
+  font-size: 16px;
+}
+
+.ticker i {
+  width: 10px;
+  height: 10px;
+  background: var(--cyan);
+}
+
+.section-light {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.section-label {
+  gap: 13px;
+  font-size: 9px;
+}
+
+.section-label span:first-child {
+  width: 30px;
+  height: 30px;
+  color: var(--signal-red);
+  border-radius: 0;
+  border-color: currentColor;
+  transform: rotate(-8deg);
+}
+
+.manifesto,
+.principles {
+  padding: 90px clamp(22px, 5vw, 76px) 116px;
+}
+
+.manifesto-body {
+  grid-template-columns: minmax(130px, 0.3fr) minmax(0, 1.25fr) minmax(210px, 0.45fr);
+  gap: clamp(22px, 4vw, 60px);
+  margin-top: 76px;
+}
+
+.manifesto-kicker,
+.principles-header > p {
+  color: rgba(16, 16, 18, 0.56);
+}
+
+.manifesto h2 {
+  font-size: clamp(48px, 6.1vw, 82px);
+  line-height: 1.13;
+}
+
+.manifesto h2 em {
+  display: inline;
+  color: var(--ink);
+  background: var(--cyan);
+  box-shadow: 9px 0 0 var(--cyan), -3px 0 0 var(--cyan);
+  font-style: normal;
+}
+
+.manifesto-copy {
+  color: rgba(16, 16, 18, 0.7);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.project-section {
+  color: #fff;
+  background: #141416;
+}
+
+.project-heading {
+  grid-template-columns: 0.5fr 1fr 0.7fr;
+  gap: 34px;
+  padding: 96px clamp(22px, 5vw, 76px) 54px;
+}
+
+.section-label-dark {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.project-overline {
+  color: var(--cyan);
+  font-size: 10px;
+}
+
+.project-heading h2 {
+  font-size: 96px;
+  line-height: 0.92;
+}
+
+.project-intro {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 14px;
+}
+
+.capability-visual {
+  min-height: 500px;
+  color: var(--ink);
+  background: var(--cyan);
+  border: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 0 100%);
+}
+
+.capability-visual::before {
+  opacity: 0.32;
+  background-size: 48px 48px;
+}
+
+.capability-copy {
+  padding: 52px clamp(22px, 5vw, 76px);
+}
+
+.capability-copy h3 {
+  font-size: 64px;
+}
+
+.capability-signal {
+  border-radius: 0;
+  border-width: 2px;
+  transform: rotate(12deg);
+}
+
+.capability-signal::before,
+.capability-signal::after {
+  border-radius: 0;
+}
+
+.capability-signal strong {
+  color: var(--cyan);
+  background: var(--ink);
+  border-radius: 0;
+  transform: rotate(-12deg);
+}
+
+.feature-list {
+  padding: 34px clamp(22px, 5vw, 76px) 88px;
+}
+
+.feature-row {
+  grid-template-columns: 58px 48px minmax(180px, 0.7fr) 1fr 26px;
+  gap: 18px;
+  min-height: 106px;
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.feature-row:hover {
+  color: var(--cyan);
+}
+
+.feature-number {
+  color: var(--signal-red);
+}
+
+.feature-row h3 {
+  font-size: 22px;
+}
+
+.feature-row p {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+}
+
+.home-project-index {
+  padding: 94px clamp(22px, 5vw, 76px) 112px;
+  overflow: hidden;
+}
+
+.project-index-heading {
+  display: grid;
+  grid-template-columns: 0.45fr 1fr 0.5fr;
+  gap: 38px;
+  align-items: end;
+  margin: 66px 0 68px;
+}
+
+.project-index-heading p {
+  align-self: start;
+  margin: 5px 0 0;
+  color: #b43a2b;
+  font: 700 10px/1.5 "IBM Plex Mono", monospace;
+}
+
+.project-index-heading h2 {
+  margin: 0;
+  font-size: 72px;
+  line-height: 1.08;
+}
+
+.project-index-heading > span {
+  color: rgba(16, 16, 18, 0.64);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.project-index-list {
+  border-top: 1px solid var(--ink);
+}
+
+.project-index-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 160px 76px minmax(180px, 0.7fr) 1fr 28px;
+  gap: 24px;
+  align-items: center;
+  min-height: 150px;
+  padding: 22px 16px;
+  border-bottom: 1px solid var(--ink);
+  transition: padding 180ms ease, color 180ms ease, background-color 180ms ease;
+}
+
+.project-index-row:hover {
+  padding-right: 28px;
+  padding-left: 28px;
+  color: var(--ink);
+  background: var(--cyan);
+}
+
+.project-index-row img {
+  width: 72px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: #fff;
+  clip-path: polygon(0 0, 100% 0, 100% 82%, 82% 100%, 0 100%);
+}
+
+.project-index-number,
+.project-index-copy {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.project-index-number {
+  color: rgba(16, 16, 18, 0.58);
+}
+
+.project-index-name {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.project-index-copy {
+  color: rgba(16, 16, 18, 0.66);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.project-index-chunithmd {
+  color: #fff;
+  background: #151517;
+}
+
+.project-index-chunithmd .project-index-number,
+.project-index-chunithmd .project-index-copy {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.project-index-chunithmd:hover {
+  color: var(--ink);
+}
+
+.project-index-chunithmd:hover .project-index-number,
+.project-index-chunithmd:hover .project-index-copy {
+  color: rgba(16, 16, 18, 0.7);
+}
+
+.maimaid-hero-content {
+  grid-template-columns: minmax(0, 1fr) minmax(290px, 0.7fr);
+}
+
+.maimaid-hero-art {
+  position: relative;
+  display: grid;
+  width: min(100%, 460px);
+  min-height: 540px;
+  align-content: center;
+  justify-items: center;
+  overflow: hidden;
+}
+
+.maimaid-art-meta,
+.maimaid-art-footer {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.62);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.maimaid-art-meta {
+  top: 4%;
+}
+
+.maimaid-art-footer {
+  bottom: 4%;
+  color: var(--signal-aqua);
+}
+
+.maimaid-mark-plane {
+  position: relative;
+  display: grid;
+  width: min(30vw, 360px);
+  aspect-ratio: 1;
+  place-items: center;
+  background: var(--signal-aqua);
+  clip-path: polygon(8% 0, 100% 12%, 88% 100%, 0 86%);
+  transform: rotate(-7deg);
+  animation: stage-in 760ms 100ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.maimaid-mark-plane::before {
+  position: absolute;
+  inset: 7%;
+  content: "";
+  border: 1px solid rgba(16, 16, 18, 0.45);
+  clip-path: polygon(8% 0, 100% 12%, 88% 100%, 0 86%);
+}
+
+.maimaid-mark-plane img {
+  width: 67%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  transform: rotate(7deg);
+}
+
+.maimaid-mark-plane strong {
+  position: absolute;
+  right: 10%;
+  bottom: 14%;
+  color: #fff;
+  font-family: "Arial Black", sans-serif;
+  font-size: 16px;
+  line-height: 0.86;
+  text-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(-7deg);
+}
+
+.maimaid-mark-ring {
+  position: absolute;
+  top: 16%;
+  left: -12%;
+  width: 124%;
+  height: 7px;
+  background: var(--signal-red);
+  transform: rotate(28deg);
+}
+
+.maimaid-copy h1 {
+  font-size: 112px;
+}
+
+.maimaid-device-stage {
+  width: min(26vw, 320px);
+  margin: 0 auto;
+}
+
+.maimaid-screens {
+  padding: 100px clamp(22px, 5vw, 76px) 128px;
+}
+
+.maimaid-screens .capture-placeholder-caption {
+  color: rgba(16, 16, 18, 0.62);
+}
+
+.screens-heading h2 {
+  font-size: 68px;
+}
+
+.screens-heading > p {
+  color: rgba(16, 16, 18, 0.66);
+}
+
+.maimaid-screen-gallery {
+  gap: clamp(28px, 5vw, 72px);
+  margin-top: 76px;
+  padding-top: 44px;
+}
+
+.maimaid-screen {
+  grid-template-columns: minmax(120px, 0.55fr) minmax(210px, 300px);
+  gap: 22px;
+}
+
+.maimaid-screen-query {
+  grid-template-columns: minmax(210px, 300px) minmax(120px, 0.55fr);
+}
+
+.maimaid-screen figcaption strong {
+  font-size: 24px;
+}
+
+.maimaid-screen .capture-placeholder {
+  width: 100%;
+}
+
+.capture-placeholder {
+  position: relative;
+  min-width: 0;
+  color: var(--ink);
+}
+
+.capture-placeholder-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.64);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.capture-placeholder-caption span:last-child {
+  overflow: hidden;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.capture-placeholder-frame {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  aspect-ratio: 9 / 18.8;
+  overflow: hidden;
+  place-items: center;
+  background-color: #dcdfd1;
+  background-image:
+    linear-gradient(rgba(16, 16, 18, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 18, 0.07) 1px, transparent 1px),
+    linear-gradient(132deg, transparent 49.6%, rgba(255, 85, 63, 0.32) 50%, transparent 50.4%);
+  background-size: 24px 24px, 24px 24px, 100% 100%;
+  border: 1px solid rgba(16, 16, 18, 0.68);
+  clip-path: polygon(0 0, 100% 0, 100% 94%, 92% 100%, 0 100%);
+}
+
+.capture-placeholder-loaded .capture-placeholder-frame {
+  display: block;
+  aspect-ratio: auto;
+  background: #101012;
+  border: 0;
+  clip-path: none;
+}
+
+.capture-screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(16, 16, 18, 0.68);
+}
+
+.capture-placeholder-loaded::after {
+  display: none;
+}
+
+.capture-placeholder::after {
+  position: absolute;
+  top: 31px;
+  right: -7px;
+  width: 22%;
+  height: 4px;
+  content: "";
+  background: var(--signal-red);
+  transform: rotate(-45deg);
+}
+
+.capture-corner {
+  position: absolute;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  border-color: var(--ink);
+  border-style: solid;
+}
+
+.capture-corner-tl {
+  top: 12px;
+  left: 12px;
+  border-width: 2px 0 0 2px;
+}
+
+.capture-corner-tr {
+  top: 12px;
+  right: 12px;
+  border-width: 2px 2px 0 0;
+}
+
+.capture-corner-bl {
+  bottom: 12px;
+  left: 12px;
+  border-width: 0 0 2px 2px;
+}
+
+.capture-corner-br {
+  right: 12px;
+  bottom: 12px;
+  border-width: 0 2px 2px 0;
+}
+
+.capture-placeholder-center {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 11px;
+  width: 74%;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.capture-placeholder-center svg {
+  color: #b43a2b;
+}
+
+.capture-placeholder-center strong,
+.capture-placeholder-center span,
+.capture-placeholder-foot {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.capture-placeholder-center strong {
+  display: inline-block;
+  padding: 7px 9px;
+  color: var(--ink);
+  background: var(--cyan);
+  clip-path: polygon(0 0, 100% 0, 100% 76%, 90% 100%, 0 100%);
+}
+
+.capture-placeholder-center span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: 8px;
+}
+
+.capture-axis {
+  position: absolute;
+  z-index: 1;
+  background: rgba(16, 16, 18, 0.22);
+}
+
+.capture-axis-x {
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 1px;
+}
+
+.capture-axis-y {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+}
+
+.capture-placeholder-foot {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2;
+  color: rgba(16, 16, 18, 0.64);
+  font-size: 7px;
+}
+
+.capture-placeholder-wide .capture-placeholder-frame {
+  aspect-ratio: 16 / 9;
+}
+
+.maimaid-access {
+  color: var(--ink);
+  background: var(--signal-aqua);
+}
+
+.project-visual::before {
+  opacity: 0.25;
+  background-size: 48px 48px;
+}
+
+.metric-board {
+  width: min(48vw, 580px);
+  border-top-color: var(--ink);
+}
+
+.metric-board > div {
+  min-height: 126px;
+  border-bottom-color: var(--ink);
+}
+
+.metric-board strong {
+  font-size: 72px;
+}
+
+.visual-copy h3 {
+  font-size: 66px;
+}
+
+.maimaid-final h2 {
+  font-size: 78px;
+}
+
+.principles-header h2 {
+  font-size: 62px;
+}
+
+.principle-grid {
+  border-color: var(--line-light);
+}
+
+.principle-grid article {
+  border-right-color: var(--line-light);
+}
+
+.principle-grid article > span {
+  color: #b43a2b;
+}
+
+.final-cta {
+  padding: 116px 22px 126px;
+}
+
+.final-cta::after {
+  width: min(76vw, 780px);
+  border-color: rgba(223, 255, 50, 0.42);
+  border-radius: 0;
+  box-shadow: 16px 16px 0 rgba(255, 85, 63, 0.8);
+  transform: translate(-50%, -50%) rotate(14deg);
+}
+
+.final-cta > p {
+  color: var(--cyan);
+}
+
+.final-cta h2 {
+  font-size: 86px;
+}
+
+footer {
+  max-width: none;
+  padding: 24px clamp(22px, 5vw, 76px);
+  border-top-color: var(--line-dark);
+}
+
+footer a:hover {
+  color: var(--cyan);
+}
+
+.chunithmd-hero-content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(380px, 0.78fr);
+  align-items: center;
+}
+
+.chunithmd-copy h1 {
+  margin: 0;
+  font-size: 104px;
+  font-weight: 900;
+  line-height: 0.88;
+}
+
+.chunithmd-hero-art {
+  position: relative;
+  display: grid;
+  min-height: 580px;
+  align-content: center;
+  justify-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.chunithmd-art-coordinate,
+.chunithmd-art-meta {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.62);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.chunithmd-art-coordinate {
+  top: 2%;
+}
+
+.chunithmd-art-meta {
+  bottom: 4%;
+  color: var(--cyan);
+}
+
+.chunithmd-mark-plane {
+  position: relative;
+  display: grid;
+  width: min(32vw, 420px);
+  aspect-ratio: 1;
+  align-items: center;
+  justify-items: center;
+  background: var(--cyan);
+  clip-path: polygon(0 8%, 82% 0, 100% 22%, 92% 100%, 18% 92%);
+  transform: rotate(6deg);
+  animation: stage-in 780ms 140ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.chunithmd-mark-plane::before {
+  position: absolute;
+  inset: 7%;
+  content: "";
+  border: 1px solid rgba(16, 16, 18, 0.42);
+  clip-path: polygon(0 8%, 82% 0, 100% 22%, 92% 100%, 18% 92%);
+}
+
+.chunithmd-mark-plane img {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.chunithmd-mark-plane strong {
+  position: absolute;
+  right: 12%;
+  bottom: 14%;
+  color: #fff;
+  font-family: "Arial Black", sans-serif;
+  font-size: 24px;
+  line-height: 0.78;
+  text-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(-9deg);
+}
+
+.chunithmd-mark-line {
+  position: absolute;
+  z-index: -1;
+  width: 125%;
+  height: 8px;
+  background: var(--signal-red);
+  transform: rotate(-32deg);
+}
+
+.chunithmd-mark-line-one {
+  top: 18%;
+  left: -14%;
+}
+
+.chunithmd-mark-line-two {
+  right: -18%;
+  bottom: 22%;
+  width: 95%;
+  height: 3px;
+  background: var(--signal-aqua);
+  transform: rotate(18deg);
+}
+
+.chunithmd-overview {
+  padding: 90px clamp(22px, 5vw, 76px) 112px;
+}
+
+.chunithmd-overview-heading {
+  display: grid;
+  grid-template-columns: 0.35fr 1fr 0.45fr;
+  gap: 42px;
+  align-items: end;
+  margin-top: 68px;
+}
+
+.chunithmd-overview-heading .manifesto-kicker {
+  align-self: start;
+  margin: 10px 0 0;
+  font-size: 10px;
+}
+
+.chunithmd-overview-heading h2 {
+  margin: 0;
+  font-size: 68px;
+  line-height: 1.16;
+}
+
+.chunithmd-overview-heading .manifesto-copy {
+  margin: 0 0 7px;
+}
+
+.chunithmd-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 82px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.chunithmd-facts > div {
+  display: grid;
+  gap: 18px;
+  min-height: 128px;
+  align-content: center;
+  padding: 20px 26px;
+  border-right: 1px solid var(--ink);
+}
+
+.chunithmd-facts > div:first-child {
+  padding-left: 0;
+}
+
+.chunithmd-facts > div:last-child {
+  border-right: 0;
+}
+
+.chunithmd-facts span {
+  color: #b43a2b;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.chunithmd-facts strong {
+  font-size: 21px;
+}
+
+.chunithmd-screens {
+  padding: 88px clamp(22px, 5vw, 76px) 112px;
+  border-top: 1px solid var(--line-light);
+}
+
+.chunithmd-screens .screens-heading {
+  grid-template-columns: 0.55fr 1fr 0.75fr;
+  gap: 40px;
+}
+
+.chunithmd-screens .screens-heading .project-overline {
+  color: #b43a2b;
+}
+
+.chunithmd-screens .screens-heading h2 {
+  font-size: 64px;
+}
+
+.chunithmd-screens .screens-heading > p {
+  color: rgba(16, 16, 18, 0.66);
+  font-size: 14px;
+}
+
+.chunithmd-capture-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(22px, 4vw, 56px);
+  align-items: start;
+  margin-top: 68px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line-light);
+}
+
+.chunithmd-capture-grid .capture-placeholder:nth-child(2) {
+  margin-top: 72px;
+}
+
+.chunithmd-capture-grid .capture-placeholder:nth-child(3) {
+  margin-top: 24px;
+}
+
+.chunithmd-capture-grid .capture-placeholder-caption {
+  color: rgba(16, 16, 18, 0.58);
+}
+
+.chunithmd-features .project-heading h2 {
+  font-size: 84px;
+}
+
+.chunithmd-scan-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.8fr);
+  min-height: 500px;
+  color: var(--ink);
+  background: var(--signal-aqua);
+}
+
+.chunithmd-scan-art {
+  position: relative;
+  min-height: 400px;
+  overflow: hidden;
+  background-image:
+    linear-gradient(rgba(16, 16, 18, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 18, 0.11) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.scan-ray {
+  position: absolute;
+  left: -14%;
+  width: 130%;
+  height: 30px;
+  background: var(--ink);
+  transform: rotate(-28deg);
+}
+
+.scan-ray-a {
+  top: 24%;
+}
+
+.scan-ray-b {
+  top: 46%;
+  height: 6px;
+  background: var(--signal-red);
+}
+
+.scan-ray-c {
+  top: 69%;
+  height: 16px;
+  background: var(--cyan);
+}
+
+.scan-crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 170px;
+  aspect-ratio: 1;
+  border: 1px solid var(--ink);
+  clip-path: polygon(0 0, 100% 0, 100% 22%, 22% 22%, 22% 100%, 0 100%);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.scan-crosshair::after {
+  position: absolute;
+  inset: 16px;
+  content: "";
+  border: 1px solid var(--ink);
+}
+
+.scan-target-label {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  padding: 8px 10px;
+  background: var(--paper);
+  font: 700 8px/1 "IBM Plex Mono", monospace;
+  transform: rotate(-3deg);
+}
+
+.chunithmd-scan-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 52px clamp(24px, 5vw, 76px);
+}
+
+.chunithmd-scan-copy > span {
+  font: 700 10px/1.4 "IBM Plex Mono", monospace;
+}
+
+.chunithmd-scan-copy h2 {
+  margin: auto 0 20px;
+  font-size: 54px;
+  line-height: 1.14;
+}
+
+.chunithmd-scan-copy p {
+  max-width: 420px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.chunithmd-final h2 {
+  font-size: 74px;
+}
+
+@media (max-width: 1080px) {
+  .hero-content {
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 0.85fr);
+  }
+
+  .hero h1 {
+    font-size: 62px;
+  }
+
+  .hero h2,
+  .maimaid-copy h2,
+  .chunithmd-copy h2 {
+    font-size: 38px;
+  }
+
+  .manifesto-body {
+    grid-template-columns: 0.25fr 1fr;
+  }
+
+  .manifesto-copy {
+    grid-column: 2;
+  }
+
+  .project-heading {
+    grid-template-columns: 0.4fr 1fr;
+  }
+
+  .project-heading h2 {
+    font-size: 82px;
+  }
+
+  .project-intro {
+    grid-column: 2;
+  }
+
+  .maimaid-copy h1 {
+    font-size: 90px;
+  }
+
+  .maimaid-device-stage {
+    width: min(29vw, 290px);
+  }
+
+  .maimaid-hero-art {
+    min-height: 440px;
+  }
+
+  .maimaid-mark-plane {
+    width: min(34vw, 320px);
+  }
+
+  .maimaid-screen,
+  .maimaid-screen-query {
+    grid-template-columns: 1fr;
+  }
+
+  .maimaid-screen-query {
+    margin-top: 112px;
+  }
+
+  .maimaid-screen-query figcaption {
+    order: -1;
+  }
+
+  .chunithmd-hero-content {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+  }
+
+  .chunithmd-copy h1 {
+    font-size: 84px;
+  }
+
+  .chunithmd-hero-art {
+    min-height: 480px;
+  }
+
+  .chunithmd-mark-plane {
+    width: min(34vw, 360px);
+  }
+
+  .chunithmd-overview-heading {
+    grid-template-columns: 0.25fr 1fr;
+  }
+
+  .chunithmd-overview-heading .manifesto-copy {
+    grid-column: 2;
+    max-width: 520px;
+  }
+
+  .chunithmd-screens .screens-heading {
+    grid-template-columns: 0.4fr 1fr;
+  }
+
+  .chunithmd-screens .screens-heading > p {
+    grid-column: 2;
+  }
+
+  .chunithmd-capture-grid {
+    gap: 22px;
+  }
+
+  .chunithmd-scan-band {
+    grid-template-columns: 1fr 0.9fr;
+  }
+}
+
+@media (max-width: 960px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+    height: 72px;
+    padding: 0 22px;
+  }
+
+  .desktop-nav,
+  .header-github {
+    display: none;
+  }
+
+  .menu-button {
+    width: 42px;
+    height: 42px;
+    color: #fff;
+    border-color: var(--line-dark);
+  }
+
+  .mobile-nav {
+    top: 71px;
+    z-index: 18;
+    padding: 18px 22px 22px;
+    background: #101012;
+    border-bottom-color: var(--line-dark);
+  }
+
+  .mobile-project-list {
+    border-bottom-color: var(--line-dark);
+  }
+
+  .mobile-nav .mobile-project-link {
+    color: var(--cyan);
+    border-left-color: var(--signal-red);
+  }
+
+  .mobile-projects-enter-to,
+  .mobile-projects-leave-from {
+    max-height: 132px;
+  }
+
+  .hero-content,
+  .maimaid-hero-content,
+  .chunithmd-hero-content {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 54px 22px 68px;
+  }
+
+  .hero-copy,
+  .maimaid-copy,
+  .chunithmd-copy {
+    max-width: 680px;
+  }
+
+  .hero h1 {
+    font-size: 82px;
+  }
+
+  .rhythm-stage {
+    width: min(84vw, 550px);
+    margin: 48px auto 12px;
+  }
+
+  .rhythm-pad {
+    --pad-offset: min(37.4vw, 230px);
+  }
+
+  .stage-chuni-badge {
+    right: 26px;
+    bottom: 7%;
+  }
+
+  .scroll-cue {
+    right: 22px;
+    bottom: 18px;
+  }
+
+  .manifesto,
+  .principles {
+    padding: 70px 22px 84px;
+  }
+
+  .manifesto-body {
+    display: block;
+    margin-top: 52px;
+  }
+
+  .manifesto-kicker {
+    margin: 0 0 24px;
+  }
+
+  .manifesto h2 {
+    font-size: 54px;
+  }
+
+  .manifesto-copy {
+    max-width: 580px;
+    margin-top: 28px;
+  }
+
+  .project-heading {
+    display: block;
+    padding: 74px 22px 48px;
+  }
+
+  .project-heading > div:nth-child(2) {
+    margin-top: 48px;
+  }
+
+  .project-heading h2 {
+    font-size: 78px;
+  }
+
+  .project-intro {
+    margin-top: 24px;
+  }
+
+  .capability-visual {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  .capability-copy {
+    min-height: 340px;
+    padding: 42px 22px;
+  }
+
+  .capability-signal {
+    order: -1;
+    width: min(72vw, 440px);
+    margin: 42px auto 0;
+  }
+
+  .capability-signal > span {
+    transform:
+      translate(-50%, -50%)
+      rotate(calc((var(--signal-index) - 1) * 22.5deg))
+      translateY(calc(min(72vw, 440px) * -0.365));
+  }
+
+  .feature-list {
+    padding: 30px 22px 70px;
+  }
+
+  .home-project-index {
+    padding: 72px 22px 82px;
+  }
+
+  .project-index-heading {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 48px 0;
+  }
+
+  .project-index-heading p {
+    grid-column: 1 / -1;
+  }
+
+  .project-index-heading h2 {
+    font-size: 58px;
+  }
+
+  .project-index-row {
+    grid-template-columns: 112px 58px 1fr 24px;
+    gap: 16px;
+    min-height: 120px;
+  }
+
+  .project-index-row img {
+    width: 56px;
+  }
+
+  .project-index-name {
+    font-size: 29px;
+  }
+
+  .project-index-copy {
+    grid-column: 3;
+    margin-top: -22px;
+    font-size: 12px;
+  }
+
+  .project-index-row > svg {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
+
+  .maimaid-copy h1 {
+    font-size: 88px;
+  }
+
+  .maimaid-device-stage {
+    width: min(42vw, 270px);
+    margin: 44px auto 0;
+  }
+
+  .maimaid-hero-art {
+    width: min(100%, 560px);
+    min-height: 360px;
+    align-self: center;
+    margin-top: 24px;
+  }
+
+  .maimaid-mark-plane {
+    width: min(58vw, 330px);
+  }
+
+  .maimaid-screens,
+  .chunithmd-screens {
+    padding: 72px 22px 92px;
+  }
+
+  .screens-heading {
+    display: block;
+  }
+
+  .screens-heading > div:nth-child(2) {
+    margin-top: 46px;
+  }
+
+  .screens-heading h2,
+  .chunithmd-screens .screens-heading h2 {
+    font-size: 54px;
+  }
+
+  .screens-heading > p {
+    margin-top: 24px;
+  }
+
+  .maimaid-screen-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px;
+    margin-top: 60px;
+  }
+
+  .maimaid-screen,
+  .maimaid-screen-query {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 0;
+  }
+
+  .maimaid-screen-query figcaption {
+    order: -1;
+  }
+
+  .maimaid-screen .capture-placeholder {
+    max-width: 290px;
+  }
+
+  .maimaid-access {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .visual-copy {
+    min-height: 450px;
+    padding: 42px 22px;
+  }
+
+  .metric-board {
+    width: calc(100% - 44px);
+    margin: 40px 22px;
+  }
+
+  .principles-header {
+    display: block;
+    margin-top: 48px;
+  }
+
+  .principles-header h2 {
+    margin-top: 22px;
+    font-size: 52px;
+  }
+
+  .principle-grid {
+    grid-template-columns: 1fr;
+    margin-top: 54px;
+  }
+
+  .principle-grid article {
+    min-height: 248px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-light);
+  }
+
+  .principle-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .principle-grid article > span {
+    margin-top: 42px;
+  }
+
+  .chunithmd-copy h1 {
+    font-size: 84px;
+  }
+
+  .chunithmd-hero-art {
+    width: min(100%, 580px);
+    min-height: 430px;
+    align-self: center;
+    margin-top: 30px;
+  }
+
+  .chunithmd-mark-plane {
+    width: min(64vw, 350px);
+  }
+
+  .chunithmd-overview,
+  .chunithmd-screens {
+    padding: 72px 22px 88px;
+  }
+
+  .chunithmd-overview-heading {
+    display: block;
+    margin-top: 48px;
+  }
+
+  .chunithmd-overview-heading h2 {
+    margin-top: 24px;
+    font-size: 54px;
+  }
+
+  .chunithmd-overview-heading .manifesto-copy {
+    margin-top: 24px;
+  }
+
+  .chunithmd-facts {
+    margin-top: 48px;
+  }
+
+  .chunithmd-facts > div {
+    min-height: 110px;
+    padding: 16px 14px;
+  }
+
+  .chunithmd-facts strong {
+    font-size: 17px;
+  }
+
+  .chunithmd-screens .screens-heading {
+    display: block;
+  }
+
+  .chunithmd-capture-grid {
+    gap: 20px;
+    margin-top: 52px;
+  }
+
+  .chunithmd-capture-grid .capture-placeholder:nth-child(2) {
+    margin-top: 52px;
+  }
+
+  .chunithmd-capture-grid .capture-placeholder:nth-child(3) {
+    margin-top: 14px;
+  }
+
+  .chunithmd-features .project-heading h2 {
+    font-size: 72px;
+  }
+
+  .chunithmd-scan-band {
+    grid-template-columns: 1fr;
+  }
+
+  .chunithmd-scan-art {
+    min-height: 340px;
+  }
+
+  .chunithmd-scan-copy {
+    min-height: 360px;
+    padding: 38px 22px;
+  }
+
+  .chunithmd-scan-copy h2 {
+    margin-top: 70px;
+    font-size: 46px;
+  }
+
+  .final-cta {
+    padding: 90px 22px 100px;
+  }
+
+  .final-cta h2,
+  .maimaid-final h2,
+  .chunithmd-final h2 {
+    font-size: 64px;
+  }
+
+  footer {
+    grid-template-columns: 1fr auto;
+    padding: 28px 22px;
+  }
+
+  footer p,
+  footer > span {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-content,
+  .maimaid-hero-content,
+  .chunithmd-hero-content {
+    padding: 38px 20px 60px;
+  }
+
+  .eyebrow {
+    margin-bottom: 18px;
+    font-size: 8px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero h2,
+  .maimaid-copy h2,
+  .chunithmd-copy h2 {
+    margin-top: 22px;
+    font-size: 29px;
+  }
+
+  .hero-description,
+  .maimaid-copy > p:last-of-type,
+  .chunithmd-copy > p:last-of-type {
+    margin-top: 16px;
+    font-size: 13px;
+  }
+
+  .hero-actions,
+  .chunithmd-copy .hero-actions {
+    gap: 8px;
+    margin-top: 22px;
+  }
+
+  .hero-actions .button {
+    min-height: 44px;
+    padding: 0 12px;
+    font-size: 9px;
+  }
+
+  .rhythm-stage {
+    width: min(62vw, 240px);
+    margin-top: 24px;
+    margin-bottom: 6px;
+  }
+
+  .rhythm-pad {
+    --pad-offset: calc(min(62vw, 240px) * 0.425);
+    width: 42px;
+    height: 42px;
+  }
+
+  .stage-chuni-badge {
+    right: 20px;
+    bottom: 6%;
+    grid-template-columns: 38px auto;
+    min-width: 148px;
+    padding: 6px 9px 6px 6px;
+  }
+
+  .stage-chuni-badge img {
+    width: 38px;
+  }
+
+  .stage-chuni-badge span,
+  .stage-chuni-badge strong {
+    font-size: 7px;
+  }
+
+  .scroll-cue {
+    display: none;
+  }
+
+  .ticker-track {
+    height: 42px;
+    font-size: 13px;
+  }
+
+  .manifesto,
+  .principles {
+    padding: 58px 20px 68px;
+  }
+
+  .manifesto h2 {
+    font-size: 37px;
+  }
+
+  .manifesto-copy {
+    font-size: 13px;
+  }
+
+  .project-heading {
+    padding: 58px 20px 40px;
+  }
+
+  .project-heading > div:nth-child(2) {
+    margin-top: 38px;
+  }
+
+  .project-heading h2 {
+    font-size: 58px;
+  }
+
+  .project-intro {
+    font-size: 13px;
+  }
+
+  .capability-copy {
+    min-height: 300px;
+    padding: 32px 20px;
+  }
+
+  .capability-copy h3 {
+    margin-top: 54px;
+    font-size: 40px;
+  }
+
+  .capability-signal {
+    width: min(70vw, 280px);
+    margin-top: 34px;
+  }
+
+  .capability-signal > span {
+    width: 6px;
+    transform:
+      translate(-50%, -50%)
+      rotate(calc((var(--signal-index) - 1) * 22.5deg))
+      translateY(calc(min(70vw, 280px) * -0.365));
+  }
+
+  .capability-signal strong {
+    font-size: 30px;
+  }
+
+  .feature-list {
+    padding: 24px 20px 56px;
+  }
+
+  .feature-row {
+    grid-template-columns: 27px 28px 1fr 19px;
+    gap: 10px;
+    min-height: 118px;
+  }
+
+  .feature-row h3 {
+    font-size: 17px;
+  }
+
+  .feature-row p {
+    grid-column: 3 / 5;
+    padding-bottom: 18px;
+    font-size: 12px;
+  }
+
+  .home-project-index {
+    padding: 60px 20px 68px;
+  }
+
+  .project-index-heading {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 38px 0 34px;
+  }
+
+  .project-index-heading h2 {
+    font-size: 46px;
+  }
+
+  .project-index-heading > span {
+    font-size: 12px;
+  }
+
+  .project-index-row {
+    grid-template-columns: 42px 1fr 22px;
+    gap: 10px 14px;
+    min-height: 114px;
+    padding: 16px 4px;
+  }
+
+  .project-index-row:hover {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .project-index-number {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    font-size: 8px;
+  }
+
+  .project-index-row img {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    width: 42px;
+  }
+
+  .project-index-name {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 24px;
+  }
+
+  .project-index-copy {
+    grid-column: 2;
+    grid-row: 3;
+    margin: 0;
+    font-size: 11px;
+  }
+
+  .project-index-row > svg {
+    grid-column: 3;
+    grid-row: 2 / span 2;
+    width: 20px;
+  }
+
+  .maimaid-copy h1,
+  .chunithmd-copy h1 {
+    font-size: 52px;
+  }
+
+  .maimaid-hero-content .hero-actions {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+
+  .maimaid-hero-art {
+    min-height: 268px;
+    margin-top: 18px;
+  }
+
+  .maimaid-mark-plane {
+    width: min(68vw, 260px);
+  }
+
+  .maimaid-mark-plane strong {
+    font-size: 14px;
+  }
+
+  .maimaid-art-meta,
+  .maimaid-art-footer {
+    font-size: 7px;
+  }
+
+  .maimaid-screens,
+  .chunithmd-screens {
+    padding: 58px 20px 70px;
+  }
+
+  .screens-heading > div:nth-child(2) {
+    margin-top: 38px;
+  }
+
+  .screens-heading h2,
+  .chunithmd-screens .screens-heading h2 {
+    font-size: 42px;
+  }
+
+  .maimaid-screen-gallery {
+    grid-template-columns: 1fr;
+    gap: 56px;
+    margin-top: 48px;
+    padding-top: 32px;
+  }
+
+  .maimaid-screen,
+  .maimaid-screen-query {
+    gap: 18px;
+  }
+
+  .maimaid-screen figcaption {
+    gap: 10px;
+  }
+
+  .maimaid-screen figcaption strong {
+    font-size: 21px;
+  }
+
+  .maimaid-screen .capture-placeholder {
+    width: min(75vw, 270px);
+    justify-self: center;
+  }
+
+  .capture-placeholder-caption {
+    font-size: 7px;
+  }
+
+  .capture-placeholder-center strong {
+    font-size: 8px;
+  }
+
+  .capture-placeholder-center span {
+    font-size: 7px;
+  }
+
+  .capture-placeholder-foot {
+    font-size: 6px;
+  }
+
+  .visual-copy {
+    min-height: 400px;
+    padding: 34px 20px;
+  }
+
+  .visual-copy h3 {
+    margin-top: 58px;
+    font-size: 40px;
+  }
+
+  .metric-board {
+    margin: 30px 20px;
+    width: calc(100% - 40px);
+  }
+
+  .metric-board > div {
+    grid-template-columns: 60px 1fr auto;
+    min-height: 98px;
+  }
+
+  .metric-board strong {
+    font-size: 52px;
+  }
+
+  .principles-header h2 {
+    font-size: 39px;
+  }
+
+  .principle-grid article {
+    min-height: 226px;
+    padding: 28px 8px;
+  }
+
+  .final-cta {
+    padding: 74px 20px 80px;
+  }
+
+  .final-cta h2,
+  .maimaid-final h2,
+  .chunithmd-final h2 {
+    font-size: 44px;
+  }
+
+  .final-cta::after {
+    width: 84vw;
+  }
+
+  .cta-actions {
+    margin-top: 30px;
+  }
+
+  .cta-actions .button {
+    min-height: 46px;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 26px 20px;
+  }
+
+  footer > div {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  footer p,
+  footer > span {
+    grid-column: auto;
+  }
+
+  .chunithmd-hero-content {
+    padding-bottom: 24px;
+  }
+
+  .chunithmd-hero-art {
+    min-height: 268px;
+    margin-top: 18px;
+  }
+
+  .chunithmd-mark-plane {
+    width: min(72vw, 280px);
+  }
+
+  .chunithmd-mark-plane strong {
+    font-size: 18px;
+  }
+
+  .chunithmd-art-coordinate,
+  .chunithmd-art-meta {
+    font-size: 7px;
+  }
+
+  .chunithmd-overview {
+    padding: 58px 20px 68px;
+  }
+
+  .chunithmd-overview-heading h2 {
+    font-size: 42px;
+  }
+
+  .chunithmd-facts {
+    grid-template-columns: 1fr;
+    margin-top: 36px;
+  }
+
+  .chunithmd-facts > div,
+  .chunithmd-facts > div:first-child {
+    min-height: 82px;
+    gap: 8px;
+    padding: 14px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .chunithmd-facts > div:last-child {
+    border-bottom: 0;
+  }
+
+  .chunithmd-capture-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    margin-top: 40px;
+  }
+
+  .chunithmd-capture-grid .capture-placeholder,
+  .chunithmd-capture-grid .capture-placeholder:nth-child(2),
+  .chunithmd-capture-grid .capture-placeholder:nth-child(3) {
+    width: min(75vw, 286px);
+    margin: 0 auto;
+  }
+
+  .chunithmd-features .project-heading h2 {
+    font-size: 58px;
+  }
+
+  .chunithmd-scan-art {
+    min-height: 270px;
+  }
+
+  .scan-crosshair {
+    width: 124px;
+  }
+
+  .chunithmd-scan-copy {
+    min-height: 312px;
+  }
+
+  .chunithmd-scan-copy h2 {
+    font-size: 38px;
+  }
+
+  .chunithmd-scan-copy p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 38px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Metamorph — the deconstruction vocabulary of the character art
+   (blue loops, halftone block, black tape, barcode, swatch tag)
+   is spread across the section frame instead of sitting on top of
+   the poster; the art keeps a single light overlap (the tape runs
+   behind the original plate).
+   --------------------------------------------------------------- */
+
+.metamorph-section {
+  --mm-blue: #265fd9;
+  --mm-ink: #10131a;
+  --mm-orbit: clamp(620px, 78vw, 1120px);
+  --mm-rail: clamp(22px, 5vw, 76px);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(64px, 5.4vw, 90px) var(--mm-rail) clamp(92px, 7.4vw, 128px);
+  color: var(--mm-ink);
+  background: #e8efff;
+}
+
+/* hairline blueprint grid, kept around the poster cluster only */
+.metamorph-section::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background-image:
+    linear-gradient(rgba(38, 95, 217, 0.085) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(38, 95, 217, 0.085) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(132% 96% at 72% 32%, #000 0 26%, transparent 72%);
+}
+
+.metamorph-marks {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.metamorph-mark {
+  position: absolute;
+  display: block;
+}
+
+/* 01 — blue loops, cropped by the section corners */
+.metamorph-orbit {
+  right: calc(var(--mm-orbit) * -0.26);
+  bottom: calc(100% - clamp(118px, 10.5vw, 152px));
+  width: var(--mm-orbit);
+  height: var(--mm-orbit);
+  border: 2px solid rgba(38, 95, 217, 0.42);
+  border-radius: 50%;
+}
+
+.metamorph-orbit::after {
+  position: absolute;
+  inset: -13px;
+  content: "";
+  border: 1px solid rgba(38, 95, 217, 0.22);
+  border-radius: 50%;
+}
+
+.metamorph-orbit-small {
+  top: auto;
+  right: auto;
+  bottom: -26vw;
+  left: -13vw;
+  width: 44vw;
+  height: 44vw;
+  max-width: 620px;
+  max-height: 620px;
+  border-color: rgba(38, 95, 217, 0.32);
+}
+
+.metamorph-orbit-small::after {
+  display: none;
+}
+
+/* 02 — halftone dot block printed into the top-left corner */
+.metamorph-halftone {
+  top: -4%;
+  left: -6%;
+  width: clamp(220px, 34%, 560px);
+  height: 40%;
+  background-image:
+    linear-gradient(102deg, transparent 0 24%, #e8efff 72%),
+    linear-gradient(184deg, transparent 0 28%, #e8efff 86%),
+    radial-gradient(rgba(38, 95, 217, 0.52) 1.3px, transparent 1.7px);
+  background-size: 100% 100%, 100% 100%, 8px 8px;
+  transform: rotate(-6deg);
+}
+
+/* 03 — registration cross, cropped by the left edge */
+.metamorph-cross {
+  top: clamp(126px, 11vw, 168px);
+  left: calc(var(--mm-rail) * -0.42);
+  width: clamp(86px, 7.6vw, 116px);
+  height: clamp(86px, 7.6vw, 116px);
+}
+
+.metamorph-cross::before,
+.metamorph-cross::after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  content: "";
+  background: rgba(38, 95, 217, 0.78);
+  transform: rotate(45deg);
+}
+
+.metamorph-cross::after {
+  transform: rotate(-45deg);
+}
+
+/* 04 — black tape strip threading behind the original plate */
+.metamorph-tape {
+  top: calc(50% + 214px);
+  left: calc(var(--mm-rail) * -0.32);
+  display: flex;
+  align-items: center;
+  width: 47%;
+  height: clamp(32px, 3vw, 42px);
+  padding-left: calc(var(--mm-rail) * 1.32);
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.58);
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 6px),
+    var(--mm-ink);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  white-space: nowrap;
+  transform: rotate(-2.2deg);
+  transform-origin: left center;
+}
+
+/* 05 — barcode spine in the outer gutter */
+.metamorph-barcode {
+  top: 27%;
+  right: calc(var(--mm-rail) * 0.4);
+  width: clamp(16px, 1.7vw, 24px);
+  height: clamp(120px, 16vw, 208px);
+  opacity: 0.72;
+  background: repeating-linear-gradient(
+    180deg,
+    var(--mm-ink) 0 1.5px,
+    transparent 1.5px 4px,
+    var(--mm-ink) 4px 5.5px,
+    transparent 5.5px 9px,
+    var(--mm-ink) 9px 12px,
+    transparent 12px 16px
+  );
+}
+
+/* 06 — print swatch tag */
+.metamorph-swatch {
+  top: min(calc(50% + 294px), calc(100% - 44px));
+  left: var(--mm-rail);
+  width: 74px;
+  height: 22px;
+  border: 1px solid rgba(16, 19, 26, 0.5);
+  background-color: #f5f4ee;
+  background-image: linear-gradient(
+    90deg,
+    var(--mm-ink) 0 13px, #f5f4ee 13px 16px,
+    #265fd9 16px 29px, #f5f4ee 29px 32px,
+    #fbfaf6 32px 45px, #f5f4ee 45px 48px,
+    var(--mm-ink) 48px 61px
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 61px 12px;
+  transform: rotate(-1.6deg);
+}
+
+.metamorph-section-label {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---- content ---- */
+.metamorph-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.35fr);
+  gap: clamp(28px, 5vw, 76px);
+  align-items: center;
+  width: 100%;
+  margin-top: clamp(42px, 4.6vw, 66px);
+}
+
+.metamorph-identity {
+  position: relative;
+}
+
+.metamorph-overline,
+.metamorph-meta,
+.metamorph-art figcaption {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.metamorph-overline {
+  display: inline-block;
+  margin: 0;
+  padding: 7px 10px;
+  color: #fff;
+  background: var(--mm-blue);
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 90% 100%, 0 100%);
+}
+
+.metamorph-identity h2 {
+  max-width: 100%;
+  margin: 26px 0 20px;
+  font-size: clamp(50px, 5.2vw, 78px);
+  font-weight: 900;
+  line-height: 0.92;
+  overflow-wrap: anywhere;
+}
+
+.metamorph-description {
+  max-width: 352px;
+  margin: 0;
+  text-wrap: pretty;
+  color: rgba(16, 19, 26, 0.72);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.metamorph-meta {
+  display: grid;
+  gap: 9px;
+  margin-top: 34px;
+  color: rgba(16, 19, 26, 0.72);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+}
+
+/* ---- plates ---- */
+.metamorph-artwork {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  min-height: min(56vw, 680px);
+  isolation: isolate;
+}
+
+.metamorph-art {
+  position: absolute;
+  margin: 0;
+}
+
+.metamorph-art img {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(16, 19, 26, 0.55);
+  box-shadow: 14px 18px 0 rgba(16, 19, 26, 0.06);
+  transition: transform 260ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.metamorph-art-deconstructed {
+  top: 0;
+  right: 2%;
+  z-index: 1;
+  width: clamp(300px, 37vw, 536px);
+  transform: rotate(2deg);
+}
+
+.metamorph-art-original {
+  bottom: 3%;
+  left: -1%;
+  z-index: 2;
+  width: clamp(190px, 21vw, 304px);
+  transform: rotate(-5deg);
+}
+
+.metamorph-art-deconstructed:hover img {
+  transform: translateY(-8px) rotate(-1deg);
+}
+
+.metamorph-art-original:hover img {
+  transform: translateY(-8px) rotate(1deg);
+}
+
+.metamorph-art figcaption {
+  position: absolute;
+  z-index: 2;
+  bottom: -13px;
+  left: 12px;
+  padding: 7px 9px;
+  color: var(--mm-ink);
+  background: #dfff32;
+  font-size: 8px;
+  white-space: nowrap;
+  transform: rotate(-2deg);
+}
+
+.metamorph-art-deconstructed figcaption {
+  right: 10px;
+  left: auto;
+  color: #fff;
+  background: var(--mm-ink);
+  transform: rotate(2deg);
+}
+
+@media (max-width: 1180px) {
+  .metamorph-barcode {
+    display: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .metamorph-section {
+    --mm-rail: clamp(20px, 4vw, 44px);
+    padding: 72px var(--mm-rail) 96px;
+  }
+
+  .metamorph-layout {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 28px;
+    margin-top: 48px;
+  }
+
+  .metamorph-artwork {
+    min-height: 60vw;
+  }
+
+  .metamorph-orbit-small {
+    bottom: -32vw;
+    left: -16vw;
+    width: 56vw;
+    height: 56vw;
+  }
+
+  .metamorph-halftone {
+    width: clamp(200px, 50%, 420px);
+  }
+
+  .metamorph-cross {
+    display: none;
+  }
+
+  .metamorph-tape {
+    width: 55%;
+  }
+
+  .metamorph-identity h2 {
+    font-size: clamp(34px, 5.6vw, 62px);
+  }
+
+  .metamorph-art-deconstructed {
+    width: min(100%, 420px);
+  }
+
+  .metamorph-art-original {
+    width: min(52%, 232px);
+  }
+}
+
+@media (max-width: 700px) {
+  .metamorph-tape {
+    font-size: 7px;
+    letter-spacing: 0.24em;
+  }
+}
+
+@media (max-width: 620px) {
+  .metamorph-section {
+    --mm-rail: 20px;
+    padding: 56px var(--mm-rail) 92px;
+  }
+
+  .metamorph-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  .metamorph-identity h2 {
+    margin: 18px 0 14px;
+    font-size: clamp(44px, 12.6vw, 56px);
+  }
+
+  .metamorph-description {
+    max-width: 100%;
+    font-size: 13px;
+  }
+
+  .metamorph-meta {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 7px;
+  }
+
+  .metamorph-artwork {
+    width: 100%;
+    min-height: min(112vw, 440px);
+    margin-top: 8px;
+  }
+
+  .metamorph-art-deconstructed {
+    top: 0;
+    right: 2%;
+    width: min(76vw, 310px);
+  }
+
+  .metamorph-art-original {
+    bottom: 2%;
+    left: 0;
+    width: min(46vw, 180px);
+  }
+
+  .metamorph-orbit {
+    right: -46vw;
+    bottom: calc(100% - 150px);
+    width: 96vw;
+    height: 96vw;
+    border-width: 1.5px;
+  }
+
+  .metamorph-orbit::after {
+    inset: -9px;
+  }
+
+  .metamorph-orbit-small {
+    display: none;
+  }
+
+  .metamorph-halftone {
+    top: -8%;
+    left: -12%;
+    width: 82%;
+    height: 46%;
+    opacity: 0.4;
+  }
+
+  .metamorph-tape {
+    top: auto;
+    bottom: 20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: 30px;
+    padding-left: 40px;
+    font-size: 7px;
+    transform: rotate(-1.4deg);
+  }
+
+  .metamorph-swatch {
+    display: none;
+  }
+}

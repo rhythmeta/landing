@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import HomeView from "./views/HomeView.vue"
 import MaimaidView from "./views/MaimaidView.vue"
+import ChunithmdView from "./views/ChunithmdView.vue"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: "/maimaid",
       component: MaimaidView,
       meta: { title: "maimaid — Rhythmeta" },
+    },
+    {
+      path: "/chunithmd",
+      component: ChunithmdView,
+      meta: { title: "chunithmd — Rhythmeta" },
     },
   ],
   scrollBehavior(to, _from, savedPosition) {

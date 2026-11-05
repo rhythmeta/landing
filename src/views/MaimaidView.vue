@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ArrowDown, ArrowUpRight, BarChart3, Cloud, GitFork, ScanLine } from "@lucide/vue"
 import { RouterLink } from "vue-router"
+import AppScreenshotPlaceholder from "../components/AppScreenshotPlaceholder.vue"
 import SiteHeader from "../components/SiteHeader.vue"
 
 const maimaidRepoUrl = "https://github.com/rhythmeta/maimaid"
-const dashboardUrl = "https://maimaid.rhythmeta.org"
 
 const featureRows = [
     {
@@ -43,30 +43,28 @@ const featureRows = [
                         面向 maimai DX 玩家生态的跨平台 App，覆盖成绩记录、曲库检索、进度统计与社区数据协同。
                     </p>
                     <div class="hero-actions">
-                        <a class="button button-primary" :href="dashboardUrl" target="_blank" rel="noreferrer">
-                            进入 Dashboard
-                            <ArrowUpRight :size="18" aria-hidden="true" />
-                        </a>
-                        <a class="button button-quiet" :href="maimaidRepoUrl" target="_blank" rel="noreferrer">
+                        <a class="button button-primary" :href="maimaidRepoUrl" target="_blank" rel="noreferrer">
                             <GitFork :size="18" aria-hidden="true" />
                             查看源码
                         </a>
                     </div>
                 </div>
 
-                <figure class="maimaid-device-stage">
-                    <div class="device-stage-meta" aria-hidden="true">
-                        <span>IOS / LIVE BUILD</span>
-                        <span>01</span>
+                <div class="maimaid-hero-art" aria-label="maimaid 项目图标与玩家数据标记">
+                    <div class="maimaid-art-meta" aria-hidden="true">
+                        <span>MAIMAI DX / PLAYER TOOLS</span>
+                        <span>PROJECT 01</span>
                     </div>
-                    <div class="maimaid-phone maimaid-phone-hero">
-                        <img src="/maimaid/home.png" alt="maimaid iOS 首页，展示 Best 50、随机歌曲、成绩查询和导出定数图入口" />
+                    <div class="maimaid-mark-plane" aria-hidden="true">
+                        <span class="maimaid-mark-ring"></span>
+                        <img src="/maimaid-icon.png" alt="" />
+                        <strong>B50<br />TRACKER</strong>
                     </div>
-                    <figcaption>
-                        <strong>PLAYER HOME</strong>
-                        <span>真实 App 界面</span>
-                    </figcaption>
-                </figure>
+                    <div class="maimaid-art-footer" aria-hidden="true">
+                        <span>LOCAL FIRST</span>
+                        <span>IOS / ANDROID</span>
+                    </div>
+                </div>
             </div>
 
             <a class="scroll-cue" href="#overview">
@@ -104,7 +102,7 @@ const featureRows = [
             <div class="screens-heading">
                 <div class="section-label">
                     <span>02</span>
-                    <span>REAL APP</span>
+                    <span>APP SCREENS</span>
                 </div>
                 <div>
                     <p class="project-overline">CURRENT IOS BUILD</p>
@@ -121,15 +119,19 @@ const featureRows = [
                         <span>01 / BEST 50</span>
                         <strong>调整 B35 与 B15，<br />追踪 DX Rating。</strong>
                     </figcaption>
-                    <div class="maimaid-phone maimaid-phone-detail">
-                        <img src="/maimaid/best-50.png" alt="maimaid Best 50 页面，展示 DX Rating、游戏版本和 B35 B15 容量设置" />
-                    </div>
+                    <AppScreenshotPlaceholder
+                        index="01"
+                        label="maimaid / best 50"
+                        image="/maimaid/best-50-screenshot.png"
+                    />
                 </figure>
 
                 <figure class="maimaid-screen maimaid-screen-query">
-                    <div class="maimaid-phone maimaid-phone-detail">
-                        <img src="/maimaid/score-query.png" alt="maimaid 成绩查询页面，展示成绩等级、FC、AP、FS 和 FDX 统计" />
-                    </div>
+                    <AppScreenshotPlaceholder
+                        index="02"
+                        label="maimaid / score query"
+                        image="/maimaid/score-query-screenshot.jpg"
+                    />
                     <figcaption>
                         <span>02 / SCORE QUERY</span>
                         <strong>按完成状态筛选，<br />快速定位成绩。</strong>
@@ -169,10 +171,6 @@ const featureRows = [
                 <span class="visual-index">YOUR DATA / YOUR RHYTHM</span>
                 <h3>随时查看，<br />继续下一局。</h3>
                 <div class="visual-links">
-                    <a :href="dashboardUrl" target="_blank" rel="noreferrer">
-                        <span>进入 Dashboard</span>
-                        <ArrowUpRight :size="22" aria-hidden="true" />
-                    </a>
                     <a :href="maimaidRepoUrl" target="_blank" rel="noreferrer">
                         <span>查看项目源码</span>
                         <GitFork :size="21" aria-hidden="true" />
@@ -204,13 +202,9 @@ const featureRows = [
             <p>READY FOR THE NEXT PLAY?</p>
             <h2>打开 maimaid，<br />接上你的记录。</h2>
             <div class="cta-actions">
-                <a class="button button-primary" :href="dashboardUrl" target="_blank" rel="noreferrer">
-                    进入 Dashboard
-                    <ArrowUpRight :size="18" aria-hidden="true" />
-                </a>
-                <a class="button button-outline" :href="maimaidRepoUrl" target="_blank" rel="noreferrer">
+                <a class="button button-primary" :href="maimaidRepoUrl" target="_blank" rel="noreferrer">
                     <GitFork :size="18" aria-hidden="true" />
-                    GITHUB
+                    查看源码
                 </a>
             </div>
         </section>
@@ -223,8 +217,8 @@ const featureRows = [
             <p>MAIMAID / OPEN SOURCE RHYTHM TOOL.</p>
             <div>
                 <RouterLink to="/">RHYTHMETA ↗</RouterLink>
+                <RouterLink to="/chunithmd">CHUNITHMD ↗</RouterLink>
                 <a :href="maimaidRepoUrl" target="_blank" rel="noreferrer">GITHUB ↗</a>
-                <a :href="dashboardUrl" target="_blank" rel="noreferrer">DASHBOARD ↗</a>
             </div>
             <span>© {{ new Date().getFullYear() }} RHYTHMETA</span>
         </footer>

@@ -5,7 +5,7 @@ import { RouterLink, useRoute } from "vue-router"
 
 const props = withDefaults(
   defineProps<{
-    page?: "home" | "maimaid"
+    page?: "home" | "maimaid" | "chunithmd"
   }>(),
   { page: "home" },
 )
@@ -22,6 +22,12 @@ const links = computed(() =>
         { label: "SCREENS", to: "/maimaid#screens" },
         { label: "FEATURES", to: "/maimaid#features" },
       ]
+    : props.page === "chunithmd"
+      ? [
+          { label: "OVERVIEW", to: "/chunithmd#overview" },
+          { label: "SCANS", to: "/chunithmd#screens" },
+          { label: "FEATURES", to: "/chunithmd#features" },
+        ]
     : [
         { label: "ABOUT", to: "/#about" },
         { label: "CAPABILITIES", to: "/#capabilities" },
@@ -32,7 +38,9 @@ const links = computed(() =>
 const githubUrl = computed(() =>
   props.page === "maimaid"
     ? "https://github.com/rhythmeta/maimaid"
-    : "https://github.com/rhythmeta",
+    : props.page === "chunithmd"
+      ? "https://github.com/rhythmeta/chunithmd"
+      : "https://github.com/rhythmeta",
 )
 
 watch(
@@ -102,6 +110,14 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown))
               </div>
               <ArrowUpRight :size="17" aria-hidden="true" />
             </RouterLink>
+            <RouterLink class="project-menu-item" to="/chunithmd">
+              <span>02</span>
+              <div>
+                <strong>chunithmd</strong>
+                <small>CHUNITHM player companion</small>
+              </div>
+              <ArrowUpRight :size="17" aria-hidden="true" />
+            </RouterLink>
           </div>
         </Transition>
       </div>
@@ -112,7 +128,13 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown))
       :href="githubUrl"
       target="_blank"
       rel="noreferrer"
-      :aria-label="page === 'maimaid' ? '访问 maimaid GitHub' : '访问 Rhythmeta GitHub'"
+      :aria-label="
+        page === 'maimaid'
+          ? '访问 maimaid GitHub'
+          : page === 'chunithmd'
+            ? '访问 chunithmd GitHub'
+            : '访问 Rhythmeta GitHub'
+      "
     >
       <GitFork :size="19" aria-hidden="true" />
       <span>GITHUB</span>
@@ -151,6 +173,11 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown))
           <RouterLink class="mobile-project-link" to="/maimaid">
             <span>01</span>
             <strong>maimaid</strong>
+            <ArrowUpRight :size="17" aria-hidden="true" />
+          </RouterLink>
+          <RouterLink class="mobile-project-link" to="/chunithmd">
+            <span>02</span>
+            <strong>chunithmd</strong>
             <ArrowUpRight :size="17" aria-hidden="true" />
           </RouterLink>
         </div>

@@ -14,6 +14,7 @@ import RhythmStage from "../components/RhythmStage.vue"
 import SiteHeader from "../components/SiteHeader.vue"
 
 const githubUrl = "https://github.com/rhythmeta"
+const dashboardUrl = "https://dash.rhythmeta.org"
 
 const capabilityRows = [
   {
@@ -52,7 +53,11 @@ const capabilityRows = [
             为音游玩家构建开放、可靠、好用的跨平台工具。
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" :href="githubUrl" target="_blank" rel="noreferrer">
+            <a class="button button-primary" :href="dashboardUrl" target="_blank" rel="noreferrer">
+              进入 Dashboard
+              <ArrowUpRight :size="18" aria-hidden="true" />
+            </a>
+            <a class="button button-quiet" :href="githubUrl" target="_blank" rel="noreferrer">
               <GitFork :size="18" aria-hidden="true" />
               查看 GitHub
             </a>
@@ -64,6 +69,11 @@ const capabilityRows = [
         </div>
 
         <RhythmStage />
+        <div class="stage-chuni-badge" aria-label="chunithmd：CHUNITHM 玩家工具">
+          <img src="/chunithmd-icon.png" alt="" />
+          <span>CHUNITHMD</span>
+          <strong>PLAYER / 02</strong>
+        </div>
       </div>
 
       <a class="scroll-cue" href="#about">
@@ -74,8 +84,8 @@ const capabilityRows = [
 
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
-        <span>OPEN DATA</span><i></i><span>LOCAL FIRST</span><i></i><span>PLAYER TOOLS</span><i></i>
-        <span>OPEN DATA</span><i></i><span>LOCAL FIRST</span><i></i><span>PLAYER TOOLS</span><i></i>
+        <span>CHUNITHM</span><i></i><span>MAIMAI DX</span><i></i><span>PLAYER TOOLS</span><i></i>
+        <span>CHUNITHM</span><i></i><span>MAIMAI DX</span><i></i><span>PLAYER TOOLS</span><i></i>
       </div>
     </div>
 
@@ -97,10 +107,52 @@ const capabilityRows = [
       </div>
     </section>
 
+    <section id="metamorph" class="metamorph-section">
+      <div class="metamorph-marks" aria-hidden="true">
+        <span class="metamorph-mark metamorph-orbit"></span>
+        <span class="metamorph-mark metamorph-orbit metamorph-orbit-small"></span>
+        <span class="metamorph-mark metamorph-halftone"></span>
+        <span class="metamorph-mark metamorph-cross"></span>
+        <span class="metamorph-mark metamorph-tape">FRAGMENT / RECONSTRUCT / REDEFINE</span>
+        <span class="metamorph-mark metamorph-barcode"></span>
+        <span class="metamorph-mark metamorph-swatch"></span>
+      </div>
+
+      <div class="section-label metamorph-section-label">
+        <span>02</span>
+        <span>RHYTHMETA / MASCOT</span>
+      </div>
+
+      <div class="metamorph-layout">
+        <div class="metamorph-identity">
+          <p class="metamorph-overline">PLAYER SIDE / 00</p>
+          <h2>Metamorph</h2>
+          <p class="metamorph-description">
+            Rhythmeta 的看板娘，陪你在节拍、数据与灵感之间不断变形。
+          </p>
+          <div class="metamorph-meta">
+            <span>ORIGINAL / RECOMPOSED</span>
+            <span>RHYTHMETA CHARACTER 01</span>
+          </div>
+        </div>
+
+        <div class="metamorph-artwork" role="group" aria-label="Metamorph 原图与解构主义版本">
+          <figure class="metamorph-art metamorph-art-deconstructed">
+            <img src="/metamorph/deconstructed.png" alt="Metamorph 的蓝白解构主义拼贴形象" />
+            <figcaption>01 / DECONSTRUCTED</figcaption>
+          </figure>
+          <figure class="metamorph-art metamorph-art-original">
+            <img src="/metamorph/original.png" alt="Metamorph 原始形象：银发少女抱着 maimai 风格玩偶" />
+            <figcaption>00 / ORIGINAL</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section id="capabilities" class="project-section capability-section">
       <div class="project-heading">
         <div class="section-label section-label-dark">
-          <span>02</span>
+          <span>03</span>
           <span>WHAT WE BUILD</span>
         </div>
         <div>
@@ -134,9 +186,37 @@ const capabilityRows = [
       </div>
     </section>
 
+    <section id="projects" class="home-project-index section-light">
+      <div class="section-label">
+        <span>04</span>
+        <span>RHYTHMETA PROJECTS</span>
+      </div>
+      <div class="project-index-heading">
+        <p>PLAYER TOOLS / OPEN SOURCE</p>
+        <h2>为每一种<br />游玩方式。</h2>
+        <span>两款原生玩家工具，<br />共享同一套开放数据理念。</span>
+      </div>
+      <div class="project-index-list">
+        <RouterLink class="project-index-row project-index-maimaid" to="/maimaid">
+          <span class="project-index-number">01 / MAIMAI DX</span>
+          <img src="/maimaid-icon.png" alt="" />
+          <span class="project-index-name">maimaid</span>
+          <span class="project-index-copy">记录、查询与同步你的游玩数据</span>
+          <ArrowUpRight :size="26" aria-hidden="true" />
+        </RouterLink>
+        <RouterLink class="project-index-row project-index-chunithmd" to="/chunithmd">
+          <span class="project-index-number">02 / CHUNITHM</span>
+          <img src="/chunithmd-icon.png" alt="" />
+          <span class="project-index-name">chunithmd</span>
+          <span class="project-index-copy">曲库、Rating 与相机识别</span>
+          <ArrowUpRight :size="26" aria-hidden="true" />
+        </RouterLink>
+      </div>
+    </section>
+
     <section id="principles" class="principles section-light">
       <div class="section-label">
-        <span>03</span>
+        <span>05</span>
         <span>OUR PRINCIPLES</span>
       </div>
       <div class="principles-header">
@@ -174,8 +254,8 @@ const capabilityRows = [
           <GitFork :size="19" aria-hidden="true" />
           加入 GitHub
         </a>
-        <RouterLink class="button button-outline" to="/maimaid">
-          查看项目
+        <RouterLink class="button button-outline" to="/chunithmd">
+          探索 chunithmd
           <ArrowUpRight :size="18" aria-hidden="true" />
         </RouterLink>
       </div>
@@ -190,6 +270,7 @@ const capabilityRows = [
       <div>
         <a :href="githubUrl" target="_blank" rel="noreferrer">GITHUB ↗</a>
         <RouterLink to="/maimaid">PROJECTS ↗</RouterLink>
+        <RouterLink to="/chunithmd">CHUNITHMD ↗</RouterLink>
       </div>
       <span>© {{ new Date().getFullYear() }} RHYTHMETA</span>
     </footer>
